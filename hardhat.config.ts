@@ -5,6 +5,7 @@ import '@nomiclabs/hardhat-ethers'
 import dotenv from 'dotenv';
 import "./tasks/set-greeting";
 import "./tasks/read-greeting";
+import 'hardhat-contract-sizer';
 
 dotenv.config();
 
@@ -49,5 +50,11 @@ export default {
       url: `https://kovan.infura.io/v3/${INFURA_KEY}`,
       accounts: [`0x${KOVAN_PRIVATE_KEY}`]
     }
+  },
+  contractSizer: {
+    alphaSort: true,
+    disambiguatePaths: false,
+    runOnCompile: true,
+    strict: true,
   }
 };
